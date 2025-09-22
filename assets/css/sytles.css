@@ -1,0 +1,82 @@
+
+:root {
+		--blanco: #ffffff; /* Color blanco base */
+		--oscuro: #212121; /* Color oscuro para textos y fondo */
+		--primario: #ff2407; /* Color principal (rojo) */
+		--secundario: #4600a7; /* Color secundario (morado) */
+		--gris: #757575; /* Gris medio */
+		--grisClaro: #DFE9F3; /* Gris claro para fondos */
+}
+
+html, body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =====================
+	 ALINEACIÓN DE PRODUCTOS
+	 ===================== */
+#listaProductos, #productosDestacados {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 2rem;
+}
+#listaProductos > div, #productosDestacados > div {
+	display: flex;
+}
+.card {
+	margin: auto;
+	width: 100%;
+	max-width: 320px;
+	min-height: 420px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.card-img-top {
+	object-fit: cover;
+	height: 180px;
+}
+
+/* Imagen grande en detalle del producto */
+#detalleProducto .card-img-top {
+	height: 320px;
+	width: 100%;
+	object-fit: contain;
+	background: #fff;
+}
+
+/* =====================
+	 TIPOGRAFÍA Y TÍTULOS
+	 ===================== */
+h1, h2, h3 { text-align: center; }
+h1 { font-size: 3.8rem; }
+h2 { font-size: 2.8rem; }
+h3 { font-size: 1.8rem; }
+
+/* =====================
+	 BOTÓN PRINCIPAL
+	 ===================== */
+.boton {
+		background-color: var(--secundario);
+		color: var(--blanco);
+		padding: 1rem 3rem;
+		margin-top: 3rem;
+		font-size: 2rem;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-weight: bold;
+		border-radius: .5rem;
+		width: 90%;
+		text-align: center;
+		border: none;
+}
+.boton:hover {
+		cursor: pointer;
+}
+
+/* =====================
+	 FOOTER
+	 ===================== */
+.footer { text-align: center; }
