@@ -1,38 +1,146 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalle Blog 2 | Tienda de Bebidas</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/sytles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La bebida energética de Chile | Tienda de Bebidas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <script src="js/productos.js" defer></script>
 </head>
 <body>
-  <div class="container">
-    <header class="d-flex justify-content-between align-items-center py-3">
-      <img src="img/logo.png" alt="Logo" class="logo">
-      <nav>
-        <a href="index.html" class="mx-2">Home</a>
-        <a href="productos.html" class="mx-2">Productos</a>
-        <a href="nosotros.html" class="mx-2">Nosotros</a>
-        <a href="blogs.html" class="mx-2">Blogs</a>
-        <a href="contacto.html" class="mx-2">Contacto</a>
-        <a href="carrito.html" class="mx-2">🛒</a>
-      </nav>
-    </header>
+    <!-- Contenedor principal con fondo gris y sombras -->
+    <div class="container container-gray" style="min-height:100vh;display:flex;flex-direction:column;">
+        <!-- Navbar moderna y responsive -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white rounded shadow-sm mb-4">
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand" href="index.html">
+                    <img src="https://i.imgur.com/qu5V6xN.png" alt="Logo Tienda de Bebidas" height="50">
+                </a>
+                
+                <!-- Botón hamburguesa para móvil -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Menú colapsable -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="productos.html">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="nosotros.html">Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="blogs.html">Blogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.html">Contacto</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Botones de usuario y carrito -->
+                    <div class="d-flex align-items-center gap-3">
+                        <a href="carrito.html" class="btn btn-outline-primary position-relative">
+                            <i class="bi bi-cart"></i> Carrito
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                0
+                            </span>
+                        </a>
+                        <a href="login.html" class="btn btn-outline-secondary">
+                            <i class="bi bi-person"></i> Login
+                        </a>
+                        <a href="registro.html" class="btn btn-primary">
+                            Registro
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
 
-    <main>
-      <h2 class="mb-4">Novedades en la tienda</h2>
-      <img src="img/blog2.jpg" class="img-fluid mb-3" alt="Blog 2">
-      <p>¡Tenemos nuevos productos y promociones! Descubre las últimas novedades que hemos incorporado a nuestra tienda, desde bebidas artesanales hasta ofertas exclusivas para nuestros clientes.</p>
-      <p>Visítanos regularmente para no perderte ninguna novedad.</p>
-    </main>
+        <!-- inicio main -->
+        <main>
+            <!-- inicio article -->
+            <article class="blog-article">
+                <h1 class="mb-4">La bebida energética de Chile</h1>
+                
+                <!-- inicio meta info -->
+                <div class="blog-meta mb-4">
+                    <span class="text-muted">Publicado: 21 de septiembre, 2025</span>
+                    <span class="text-muted mx-2">|</span>
+                    <span class="text-muted">Por: Equipo Editorial</span>
+                </div>
+                <!-- fin meta info -->
 
-    <footer class="text-center py-4">
-      <p>&copy; Tienda de Bebidas</p>
-    </footer>
-  </div>
+                <!-- inicio contenido -->
+                <div class="blog-content">
+                    <img src="https://scoreenergydrink.com/cdn/shop/files/SCOREGORILLA500ML_9e93e49e-5f8c-43b1-a992-108f18bec960.jpg?v=1734648539&width=800" 
+                         alt="Score Energy Drink" 
+                         class="img-fluid mb-4 rounded">
+                    
+                    <p class="lead">Score Energy Drink se ha convertido en la bebida energética preferida de los chilenos, destacando por su sabor único y su capacidad para mantener la energía durante todo el día.</p>
+                    
+                    <h2>Historia de Score</h2>
+                    <p>Nacida en Chile, Score Energy Drink ha logrado posicionarse como una de las bebidas energéticas más vendidas del país, compitiendo directamente con marcas internacionales.</p>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+                    <h2>¿Por qué es la favorita?</h2>
+                    <ul>
+                        <li>Sabor adaptado al gusto local</li>
+                        <li>Precio competitivo</li>
+                        <li>Alta calidad en sus ingredientes</li>
+                        <li>Variedad de presentaciones</li>
+                    </ul>
+
+                    <h2>Beneficios y Características</h2>
+                    <p>Score Energy Drink ofrece:</p>
+                    <ul>
+                        <li>Energía duradera</li>
+                        <li>Mejor concentración</li>
+                        <li>Vitaminas del complejo B</li>
+                        <li>Taurina y cafeína en cantidades óptimas</li>
+                    </ul>
+
+                    <h2>Variantes Disponibles</h2>
+                    <ul>
+                        <li>Score Original</li>
+                        <li>Score Zero (sin azúcar)</li>
+                        <li>Score Manzana</li>
+                        <li>Score Tropical</li>
+                    </ul>
+                </div>
+                <!-- fin contenido -->
+
+                <!-- inicio compartir -->
+                <div class="share-section mt-5">
+                    <h3>Compartir artículo</h3>
+                    <div class="social-buttons mt-3">
+                        <button class="btn btn-primary me-2">Facebook</button>
+                        <button class="btn btn-info me-2">Twitter</button>
+                        <button class="btn btn-success">WhatsApp</button>
+                    </div>
+                </div>
+                <!-- fin compartir -->
+            </article>
+            <!-- fin article -->
+        </main>
+        <!-- fin main -->
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/footer.js"></script>
+    <script>
+        // Actualizar el contador del carrito al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            actualizarContadorCarrito(carrito);
+        });
+    </script>
 </body>
 </html>

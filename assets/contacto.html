@@ -6,71 +6,153 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Contacto | Tienda de Bebidas</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/sytles.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="js/productos.js"></script>
+	<script>
+    // Actualizar el contador del carrito al cargar la página
+    document.addEventListener('DOMContentLoaded', function() {
+      const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+      actualizarContadorCarrito(carrito);
+    });
+  </script>
+  <script src="js/footer.js"></script>
 </head>
 <body>
-	<div class="container">
-		<header class="d-flex justify-content-between align-items-center py-3" role="banner">
-			<img src="https://i.imgur.com/qu5V6xN.png" alt="Logo Tienda de Bebidas" class="logo" style="max-height:60px;">
-			<nav aria-label="Menú principal">
-				<a href="index.html" class="mx-2">Home</a>
-				<a href="productos.html" class="mx-2">Productos</a>
-				<a href="nosotros.html" class="mx-2">Nosotros</a>
-				<a href="blogs.html" class="mx-2">Blogs</a>
-				<a href="carrito.html" class="mx-2">Carrito</a>
-			</nav>
-		<!-- inicio container -->
-		<div class="container">
-			<!-- inicio header -->
-			<header class="d-flex justify-content-between align-items-center py-3" role="banner">
-				<img src="https://i.imgur.com/qu5V6xN.png" alt="Logo Tienda de Bebidas" class="logo" style="max-height:60px;">
-				<!-- inicio nav -->
-				<nav aria-label="Menú principal">
-					<a href="index.html" class="mx-2">Home</a>
-					<a href="productos.html" class="mx-2">Productos</a>
-					<a href="nosotros.html" class="mx-2">Nosotros</a>
-					<a href="blogs.html" class="mx-2">Blogs</a>
-					<a href="carrito.html" class="mx-2">Carrito</a>
-				</nav>
-				<!-- fin del nav -->
-			</header>
-			<!-- fin del header -->
+		<div class="container container-gray" style="min-height:100vh;display:flex;flex-direction:column;">
+		<!-- Navbar moderna y responsive -->
+		<nav class="navbar navbar-expand-lg navbar-light bg-white rounded shadow-sm mb-4">
+			<div class="container-fluid">
+				<!-- Logo -->
+				<a class="navbar-brand" href="index.html">
+					<img src="https://i.imgur.com/qu5V6xN.png" alt="Logo Tienda de Bebidas" height="50">
+				</a>
+				
+				<!-- Botón hamburguesa para móvil -->
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+						aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				
+				<!-- Menú colapsable -->
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav me-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="productos.html">Productos</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="nosotros.html">Nosotros</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="blogs.html">Blogs</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="contacto.html">Contacto</a>
+						</li>
+					</ul>
+					
+					<!-- Botones de usuario y carrito -->
+					<div class="d-flex align-items-center gap-3">
+						<a href="carrito.html" class="btn btn-outline-primary position-relative">
+							<i class="bi bi-cart"></i> Carrito
+							<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+								0
+							</span>
+						</a>
+						<a href="login.html" class="btn btn-outline-secondary">
+							<i class="bi bi-person"></i> Login
+						</a>
+						<a href="registro.html" class="btn btn-primary">
+							Registro
+						</a>
+					</div>
+				</div>
+			</div>
+		</nav>
 
-			<!-- inicio main -->
-			<main>
-				<!-- inicio section contacto -->
-				<section>
-					<h2 class="mb-4">Contacto</h2>
-					<!-- inicio form contacto -->
-					<form id="formContacto" class="mb-4">
-						<div class="mb-3">
-							<label for="nombre" class="form-label">Nombre</label>
-							<input type="text" class="form-control" id="nombre" maxlength="100" required>
-							<div class="invalid-feedback" id="errorNombre"></div>
-						</div>
-						<div class="mb-3">
-							<label for="correo" class="form-label">Correo</label>
-							<input type="email" class="form-control" id="correo" maxlength="100" required>
-							<div class="invalid-feedback" id="errorCorreo"></div>
-						</div>
-						<div class="mb-3">
-							<label for="comentario" class="form-label">Comentario</label>
-							<textarea class="form-control" id="comentario" maxlength="500" required></textarea>
-							<div class="invalid-feedback" id="errorComentario"></div>
-						</div>
-						<button type="submit" class="btn btn-primary">Enviar</button>
-					</form>
-					<!-- fin del form contacto -->
-					<div id="mensajeExito" class="alert alert-success d-none">¡Mensaje enviado!</div>
-				</section>
-				<!-- fin del section contacto -->
-			</main>
-			<!-- fin del main -->
+		<main style="flex:1 0 auto;" class="py-5">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-lg-8">
+						<!-- Tarjeta de contacto con diseño moderno -->
+						<div class="card border-0 shadow-lg rounded-4 p-3 p-md-4">
+							<div class="card-body">
+								<div class="text-center mb-4">
+									<h2 class="fw-bold">Contáctanos</h2>
+									<p class="text-muted">Estamos aquí para ayudarte. Envíanos tu mensaje.</p>
+								</div>
+								
+								<!-- Información de contacto -->
+								<div class="row g-4 mb-4">
+									<div class="col-md-4 text-center">
+										<div class="p-3 bg-light rounded-4">
+											<i class="bi bi-envelope-fill fs-3 text-primary mb-2"></i>
+											<p class="mb-0">contacto@tiendabebidas.cl</p>
+										</div>
+									</div>
+									<div class="col-md-4 text-center">
+										<div class="p-3 bg-light rounded-4">
+											<i class="bi bi-telephone-fill fs-3 text-primary mb-2"></i>
+											<p class="mb-0">+56 2 2123 4567</p>
+										</div>
+									</div>
+									<div class="col-md-4 text-center">
+										<div class="p-3 bg-light rounded-4">
+											<i class="bi bi-geo-alt-fill fs-3 text-primary mb-2"></i>
+											<p class="mb-0">Santiago, Chile</p>
+										</div>
+									</div>
+								</div>
 
-			<!-- inicio footer -->
-			<footer class="text-center py-4" role="contentinfo">
-				<p>&copy; Tienda de Bebidas</p>
-			</footer>
-			<!-- fin del footer -->
-		</div>
-		<!-- fin del container -->
+								<!-- Formulario de contacto mejorado -->
+								<form id="formContacto" class="mb-4">
+									<div class="form-floating mb-3">
+										<input type="text" class="form-control rounded-3" 
+											   id="nombre" maxlength="100" required 
+											   placeholder="Tu nombre">
+										<label for="nombre">
+											<i class="bi bi-person"></i> Nombre completo
+										</label>
+										<div class="invalid-feedback" id="errorNombre"></div>
+									</div>
+
+									<div class="form-floating mb-3">
+										<input type="email" class="form-control rounded-3" 
+											   id="correo" maxlength="100" required 
+											   placeholder="tucorreo@ejemplo.com">
+										<label for="correo">
+											<i class="bi bi-envelope"></i> Correo electrónico
+										</label>
+										<div class="invalid-feedback" id="errorCorreo"></div>
+									</div>
+
+									<div class="form-floating mb-4">
+										<textarea class="form-control rounded-3" 
+												  id="comentario" maxlength="500" required 
+												  style="height: 120px" 
+												  placeholder="Tu mensaje"></textarea>
+										<label for="comentario">
+											<i class="bi bi-chat-text"></i> Tu mensaje
+										</label>
+										<div class="invalid-feedback" id="errorComentario"></div>
+									</div>
+
+									<div class="d-grid">
+										<button type="submit" class="btn btn-primary btn-lg rounded-3">
+											<i class="bi bi-send"></i> Enviar mensaje
+										</button>
+									</div>
+								</form>
+								
+								<!-- Mensaje de éxito -->
+								<div id="mensajeExito" class="alert alert-success d-none rounded-3">
+									<i class="bi bi-check-circle"></i> ¡Mensaje enviado con éxito! Te responderemos pronto.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+	</div>

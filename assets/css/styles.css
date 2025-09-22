@@ -1,0 +1,154 @@
+/**
+ * Estilos Principales de la Tienda de Bebidas
+ */
+
+/* Variables CSS Globales - Definición del sistema de diseño */
+:root {
+    --primary-gradient: linear-gradient(90deg, #43c6ac 0%, #f8ffae 100%);
+    --reverse-gradient: linear-gradient(90deg, #f8ffae 0%, #43c6ac 100%);
+    --body-gradient: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+    --primary-color: #2d3e50;
+    --secondary-color: #3a6073;
+    --shadow-color: rgba(44,62,80,0.12);
+    --container-bg: rgba(255,255,255,0.95);
+    --radius-lg: 18px;
+    --radius-md: 16px;
+    --spacing-lg: 40px;
+    --spacing-md: 32px;
+    --spacing-sm: 24px;
+    --font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+
+/* Estilos Base - Configuración fundamental del sitio */
+/* Aplica el gradiente de fondo y la tipografía principal */
+body {
+    background: var(--body-gradient);
+    font-family: var(--font-family);
+}
+
+/* Contenedores - Componentes estructurales básicos */
+/* Proporciona un fondo claro con sombra y bordes redondeados */
+.container-gray {
+    background: var(--container-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 32px var(--shadow-color);
+    padding: var(--spacing-lg) var(--spacing-md);
+    margin: var(--spacing-lg) 0;
+}
+
+/* Sección Hero */
+.hero-section {
+    background: var(--primary-gradient);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 24px rgba(67,198,172,0.12);
+    padding: var(--spacing-md) var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-title {
+    color: var(--primary-color);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.hero-lead {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+}
+
+.hero-img {
+    max-width: 380px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 2px 16px var(--shadow-color);
+}
+
+/* Botones */
+.btn-primary {
+    background: var(--primary-gradient);
+    color: var(--primary-color);
+    border: none;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(67,198,172,0.10);
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-primary:hover {
+    background: var(--reverse-gradient);
+}
+
+/* Formularios */
+.form-control {
+    border-radius: var(--radius-md);
+    padding: 12px var(--spacing-sm);
+    border: 1px solid rgba(44,62,80,0.1);
+}
+
+.form-control:focus {
+    border-color: #43c6ac;
+    box-shadow: 0 0 0 0.2rem rgba(67,198,172,0.25);
+}
+
+/* Productos */
+.producto-card {
+    background: var(--container-bg);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 4px 16px var(--shadow-color);
+    transition: transform 0.3s;
+}
+
+.producto-card:hover {
+    transform: translateY(-5px);
+}
+
+.producto-card img {
+    width: 100%;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.precio {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* Carrito */
+.carrito-item {
+    border-bottom: 1px solid rgba(44,62,80,0.1);
+    padding: var(--spacing-sm) 0;
+}
+
+.carrito-total {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: var(--spacing-md) 0;
+}
+
+/* Tabla */
+.table {
+    background: var(--container-bg);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.table th {
+    background: var(--primary-gradient);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Utilidades */
+.text-primary {
+    color: var(--primary-color);
+}
+
+.text-secondary {
+    color: var(--secondary-color);
+}
+
+.bg-gradient {
+    background: var(--primary-gradient);
+}

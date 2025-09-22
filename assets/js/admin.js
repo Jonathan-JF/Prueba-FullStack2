@@ -1,13 +1,26 @@
-// Simulación de CRUD de productos y usuarios en el panel admin
+/**
+ * Panel de Administración
+ * 
+ * Este archivo maneja todas las operaciones CRUD (Crear, Leer, Actualizar, Eliminar)
+ * para productos y usuarios en el panel de administración.
+ * 
+ * Características principales:
+ * - Gestión de productos y usuarios
+ * - Persistencia de datos usando localStorage
+ * - Validación de datos
+ * - Interfaz de usuario dinámica
+ */
+
+// Inicialización del panel cuando el DOM está listo
 window.addEventListener('DOMContentLoaded', () => {
 	const vista = document.getElementById('vistaAdmin');
 	const menuProductos = document.getElementById('menuProductos');
 	const menuUsuarios = document.getElementById('menuUsuarios');
 
-	// Datos simulados con persistencia
-	// Si existen productos en productos.js, los agregamos al admin solo la primera vez
+
 	let productos = JSON.parse(localStorage.getItem('admin_productos')) || [];
-	// Agregar productos del array global si no existen en admin
+	
+	// Importación de productos globales si existen
 	if (window.productos && Array.isArray(window.productos)) {
 		window.productos.forEach(p => {
 			if (!productos.some(x => x.id === p.id)) {
@@ -29,12 +42,21 @@ window.addEventListener('DOMContentLoaded', () => {
 		{ id: 2, run: '20123456K', nombre: 'Ana', apellidos: 'Gómez', correo: 'ana@gmail.com' }
 	];
 
+	/**
+	 * Renderiza la tabla de productos
+	 * 
+	 * Funcionalidad:
+	 * - Ordena productos por ID
+	 * - Genera tabla HTML dinámica
+	 * - Incluye botones de acción por producto
+	 * - Actualiza la vista en tiempo real
+	 */
 	function renderProductos() {
+		// Ordenar productos por ID para mantener consistencia
 		const productosOrdenados = [...productos].sort((a, b) => a.id - b.id);
 		vista.innerHTML = `
 			<h4>Productos</h4>
 			<button class="btn btn-primary mb-3" onclick="mostrarFormProducto()">Nuevo Producto</button>
-			<button class="btn btn-outline-secondary mb-3 ms-2" onclick="importarProductosBase()">Importar productos base</button>
 			<table class="table table-bordered">
 				<thead><tr><th>Código</th><th>Nombre</th><th>Precio</th><th>Stock</th><th>Acciones</th></tr></thead>
 				<tbody>
@@ -54,34 +76,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			</table>
 			<div id="formProducto"></div>
 		`;
-	window.importarProductosBase = function() {
-		if (window.productos && Array.isArray(window.productos)) {
-			let nuevos = 0;
-			window.productos.forEach(p => {
-				if (!productos.some(x => x.id === p.id)) {
-					productos.push({
-						id: p.id,
-						codigo: 'P' + String(p.id).padStart(3, '0'),
-						nombre: p.nombre,
-						precio: p.precio,
-						stock: 10,
-						imagen: p.imagen || '',
-						descripcion: p.descripcion || ''
-					});
-					nuevos++;
-				}
-			});
-			localStorage.setItem('admin_productos', JSON.stringify(productos));
-			renderProductos();
-			if (nuevos > 0) {
-				alert(nuevos + ' productos base importados correctamente.');
-			} else {
-				alert('No hay productos nuevos para importar.');
-			}
-		} else {
-			alert('No se encontró el array de productos base.');
-		}
-	}
+	// Se eliminó la función importarProductosBase por redundancia
 	}
 
 	window.mostrarFormProducto = function() {
@@ -89,12 +84,12 @@ window.addEventListener('DOMContentLoaded', () => {
 			<h5>Nuevo Producto</h5>
 			<form onsubmit="guardarProducto(event)">
 				<input type="hidden" id="idProducto" value="">
-				<div class="mb-2"><input type="text" class="form-control" id="codigoProducto" placeholder="Código" required></div>
-				<div class="mb-2"><input type="text" class="form-control" id="nombreProducto" placeholder="Nombre" required></div>
-				<div class="mb-2"><input type="number" class="form-control" id="precioProducto" placeholder="Precio" min="0" required></div>
-				<div class="mb-2"><input type="number" class="form-control" id="stockProducto" placeholder="Stock" min="0" required></div>
-				<div class="mb-2"><input type="text" class="form-control" id="imagenProducto" placeholder="URL de imagen"></div>
-				<div class="mb-2"><textarea class="form-control" id="descripcionProducto" placeholder="Descripción"></textarea></div>
+				<div class="mb-2"><input type="text" class="form-control" id="codigoProducto" placeholder="Código" required maxlength="10"></div>
+				<div class="mb-2"><input type="text" class="form-control" id="nombreProducto" placeholder="Nombre" required maxlength="50"></div>
+				<div class="mb-2"><input type="number" class="form-control" id="precioProducto" placeholder="Precio" min="1" required></div>
+				<div class="mb-2"><input type="number" class="form-control" id="stockProducto" placeholder="Stock" min="1" required></div>
+				<div class="mb-2"><input type="text" class="form-control" id="imagenProducto" placeholder="URL de imagen" maxlength="200"></div>
+				<div class="mb-2"><textarea class="form-control" id="descripcionProducto" placeholder="Descripción" maxlength="200"></textarea></div>
 				<button type="submit" class="btn btn-success">Guardar</button>
 			</form>
 		`;
@@ -176,10 +171,10 @@ window.addEventListener('DOMContentLoaded', () => {
 			<h5>Nuevo Usuario</h5>
 			<form onsubmit="guardarUsuario(event)">
 				<input type="hidden" id="idUsuario" value="">
-				<div class="mb-2"><input type="text" class="form-control" id="runUsuario" placeholder="RUN" required></div>
-				<div class="mb-2"><input type="text" class="form-control" id="nombreUsuario" placeholder="Nombre" required></div>
-				<div class="mb-2"><input type="text" class="form-control" id="apellidosUsuario" placeholder="Apellidos" required></div>
-				<div class="mb-2"><input type="email" class="form-control" id="correoUsuario" placeholder="Correo" required></div>
+				<div class="mb-2"><input type="text" class="form-control" id="runUsuario" placeholder="RUN" required maxlength="12"></div>
+				<div class="mb-2"><input type="text" class="form-control" id="nombreUsuario" placeholder="Nombre" required maxlength="50"></div>
+				<div class="mb-2"><input type="text" class="form-control" id="apellidosUsuario" placeholder="Apellidos" required maxlength="50"></div>
+				<div class="mb-2"><input type="email" class="form-control" id="correoUsuario" placeholder="Correo" required maxlength="100" pattern=".+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$"></div>
 				<button type="submit" class="btn btn-success">Guardar</button>
 			</form>
 		`;

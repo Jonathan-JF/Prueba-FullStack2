@@ -6,48 +6,102 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Productos | Tienda de Bebidas</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/sytles.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="js/productos.js" defer></script>
+	<script>
+		// Actualizar el contador del carrito al cargar la página
+		document.addEventListener('DOMContentLoaded', function() {
+			const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+			actualizarContadorCarrito(carrito);
+		});
+	</script>
 </head>
 <body>
 	<!-- inicio container -->
-	<div class="container">
-		<!-- inicio header -->
-		<header class="d-flex justify-content-between align-items-center py-3" role="banner">
-			<img src="https://i.imgur.com/qu5V6xN.png" alt="Logo Tienda de Bebidas" class="logo" style="max-height:60px;">
-			<!-- inicio nav -->
-			<nav aria-label="Menú principal">
-				<a href="index.html" class="mx-2">Home</a>
-				<a href="nosotros.html" class="mx-2">Nosotros</a>
-				<a href="blogs.html" class="mx-2">Blogs</a>
-				<a href="contacto.html" class="mx-2">Contacto</a>
-				<a href="carrito.html" class="mx-2">Carrito</a>
-			</nav>
-			<!-- fin del nav -->
-		</header>
-		<!-- fin del header -->
+		<div class="container container-gray" style="min-height:100vh;display:flex;flex-direction:column;">
+		<!-- Navbar moderna y responsive -->
+		<nav class="navbar navbar-expand-lg navbar-light bg-white rounded shadow-sm mb-4">
+			<div class="container-fluid">
+				<!-- Logo -->
+				<a class="navbar-brand" href="index.html">
+					<img src="https://i.imgur.com/qu5V6xN.png" alt="Logo Tienda de Bebidas" height="50">
+				</a>
+				
+				<!-- Botón hamburguesa para móvil -->
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+						aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				
+				<!-- Menú colapsable -->
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav me-auto">
+						<li class="nav-item">
+							<a class="nav-link active" href="productos.html">Productos</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="nosotros.html">Nosotros</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="blogs.html">Blogs</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="contacto.html">Contacto</a>
+						</li>
+					</ul>
+					
+					<!-- Botones de usuario y carrito -->
+					<div class="d-flex align-items-center gap-3">
+						<a href="carrito.html" class="btn btn-outline-primary position-relative">
+							<i class="bi bi-cart"></i> Carrito
+							<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+								0
+							</span>
+						</a>
+						<a href="login.html" class="btn btn-outline-secondary">
+							<i class="bi bi-person"></i> Login
+						</a>
+						<a href="registro.html" class="btn btn-primary">
+							Registro
+						</a>
+					</div>
+				</div>
+			</div>
+		</nav>
 
 		<!-- inicio main -->
-		<main>
+		<main style="flex:1 0 auto;">
 			<!-- inicio section productos -->
 			<section>
-				<h2 class="mb-4">Todos los Productos</h2>
-				<!-- inicio div listaProductos -->
-				<div class="row" id="listaProductos"></div>
-				<!-- fin del div listaProductos -->
+				
+				<!-- inicio skeleton loading -->
+				<div id="skeleton-loading" class="row">
+					<!-- Se generará dinámicamente -->
+				</div>
+				<!-- fin de skeleton loading -->
+				
+				<!-- inicio lista de productos -->
+				<div class="row lista-productos-section" id="listaProductos"></div>
+				<!-- fin de lista de productos -->
+				
+				<!-- inicio paginación -->
+				<div id="pagination" class="mt-4"></div>
+				<!-- fin de paginación -->
 			</section>
 			<!-- fin del section productos -->
+			
+			<!-- inicio toast container -->
+			<div id="notifications-container"></div>
+			<!-- fin de toast container -->
 		</main>
 		<!-- fin del main -->
 
-		<!-- inicio footer -->
-		<footer class="text-center py-4" role="contentinfo">
-			<p>&copy; Tienda de Bebidas</p>
-		</footer>
-		<!-- fin del footer -->
 	</div>
 	<!-- fin del container -->
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="js/productos.js"></script>
+	<script src="js/footer.js"></script>
 </body>
 </html>

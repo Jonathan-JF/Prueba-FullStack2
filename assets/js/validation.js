@@ -1,4 +1,16 @@
-// Validación de formulario de contacto
+/**
+ * Sistema de Validación de Formularios
+ * 
+ * Este archivo contiene la lógica de validación para los formularios de la aplicación:
+ * - Validación en tiempo real
+ * - Mensajes de error personalizados
+ * - Feedback visual usando clases de Bootstrap
+ * - Prevención de envío de datos inválidos
+ * 
+ * Utiliza el sistema de validación de Bootstrap para mostrar estados de los campos
+ */
+
+// Inicialización cuando el DOM está listo
 window.addEventListener('DOMContentLoaded', () => {
 	const form = document.getElementById('formContacto');
 	if (!form) return;
@@ -10,6 +22,15 @@ window.addEventListener('DOMContentLoaded', () => {
 	const errorComentario = document.getElementById('errorComentario');
 	const mensajeExito = document.getElementById('mensajeExito');
 
+	/**
+	 * Valida el campo de nombre
+	 * @returns {boolean} true si el nombre es válido, false si no
+	 * 
+	 * Reglas de validación:
+	 * - No puede estar vacío
+	 * - Máximo 100 caracteres
+	 * - Se eliminan espacios al inicio y final
+	 */
 	function validarNombre() {
 		if (!nombre.value.trim()) {
 			errorNombre.textContent = 'El nombre es requerido.';
@@ -125,8 +146,23 @@ window.addEventListener('DOMContentLoaded', () => {
 			password.classList.add('is-invalid');
 			return false;
 		}
-		if (val.length < 4 || val.length > 10) {
-			errorPassword.textContent = 'Debe tener entre 4 y 10 caracteres.';
+		if (val.length < 8 || val.length > 20) {
+			errorPassword.textContent = 'Debe tener entre 8 y 20 caracteres.';
+			password.classList.add('is-invalid');
+			return false;
+		}
+		if (!/[A-Z]/.test(val)) {
+			errorPassword.textContent = 'Debe contener al menos una mayúscula.';
+			password.classList.add('is-invalid');
+			return false;
+		}
+		if (!/[a-z]/.test(val)) {
+			errorPassword.textContent = 'Debe contener al menos una minúscula.';
+			password.classList.add('is-invalid');
+			return false;
+		}
+		if (!/[0-9]/.test(val)) {
+			errorPassword.textContent = 'Debe contener al menos un número.';
 			password.classList.add('is-invalid');
 			return false;
 		}
@@ -168,14 +204,20 @@ window.addEventListener('DOMContentLoaded', () => {
 			const okCorreo = validarCorreoForm();
 			const okPassword = validarPasswordForm();
 			if (okCorreo && okPassword) {
-                // Si es admin, redirige al panel
-                if (correo.value === 'admin@duoc.cl' && password.value === 'admin123') {
-                    window.location.href = 'admin.html';
-                    return;
-                }
+				// Si es admin, redirige al panel
+				if (correo.value === 'admin@duoc.cl' && password.value === 'Admin1234') {
+					localStorage.setItem('tipoUsuario', 'admin');
+					window.location.href = 'admin.html';
+					return;
+				}
+				// Si es usuario normal, guardar tipo y redirigir a home
+				localStorage.setItem('tipoUsuario', 'usuario');
 				mensajeExitoLogin.classList.remove('d-none');
 				formLogin.reset();
-				setTimeout(() => mensajeExitoLogin.classList.add('d-none'), 3000);
+				setTimeout(() => {
+					mensajeExitoLogin.classList.add('d-none');
+					window.location.href = 'index.html';
+				}, 1200);
 			}
 		});
 	}

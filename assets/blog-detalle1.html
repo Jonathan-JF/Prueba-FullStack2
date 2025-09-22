@@ -1,50 +1,147 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalle Blog 1 | Tienda de Bebidas</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/sytles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El vino más prestigioso de Chile | Tienda de Bebidas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <script src="js/productos.js" defer></script>
 </head>
 <body>
-  <div class="container">
-    <header class="d-flex justify-content-between align-items-center py-3">
-  <!-- inicio container -->
-  <div class="container">
-    <!-- inicio header -->
-    <header class="d-flex justify-content-between align-items-center py-3">
-      <img src="https://i.imgur.com/qu5V6xN.png" alt="Logo Tienda de Bebidas" class="logo" style="max-height:60px;">
-      <!-- inicio nav -->
-      <nav aria-label="Menú principal">
-        <a href="index.html" class="mx-2">Home</a>
-        <a href="productos.html" class="mx-2">Productos</a>
-        <a href="nosotros.html" class="mx-2">Nosotros</a>
-        <a href="blogs.html" class="mx-2">Blogs</a>
-        <a href="contacto.html" class="mx-2">Contacto</a>
-        <a href="carrito.html" class="mx-2">Carrito</a>
-      </nav>
-      <!-- fin del nav -->
-    </header>
-    <!-- fin del header -->
+    <!-- Contenedor principal con fondo gris y sombras -->
+    <div class="container container-gray" style="min-height:100vh;display:flex;flex-direction:column;">
+        <!-- Navbar moderna y responsive -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white rounded shadow-sm mb-4">
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand" href="index.html">
+                    <img src="https://i.imgur.com/qu5V6xN.png" alt="Logo Tienda de Bebidas" height="50">
+                </a>
+                
+                <!-- Botón hamburguesa para móvil -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Menú colapsable -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="productos.html">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="nosotros.html">Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="blogs.html">Blogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.html">Contacto</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Botones de usuario y carrito -->
+                    <div class="d-flex align-items-center gap-3">
+                        <a href="carrito.html" class="btn btn-outline-primary position-relative">
+                            <i class="bi bi-cart"></i> Carrito
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                0
+                            </span>
+                        </a>
+                        <a href="login.html" class="btn btn-outline-secondary">
+                            <i class="bi bi-person"></i> Login
+                        </a>
+                        <a href="registro.html" class="btn btn-primary">
+                            Registro
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
 
-    <!-- inicio main -->
-    <main>
-      <!-- inicio section blog detalle 1 -->
-      <h2 class="mb-4">Curiosidades sobre bebidas</h2>
-      <img src="img/blog1.jpg" class="img-fluid mb-3" alt="Blog 1">
-      <p>Las bebidas han acompañado a la humanidad desde tiempos antiguos. ¿Sabías que la cerveza es una de las bebidas más antiguas del mundo? En este blog te contamos datos curiosos, historia y novedades sobre el fascinante mundo de las bebidas.</p>
-      <p>¡Sigue explorando para descubrir más!</p>
-      <!-- fin del section blog detalle 1 -->
-    </main>
-    <!-- fin del main -->
+        <!-- Main - Contenedor principal del contenido -->
+        <main>
+            <!-- Artículo del blog - Estructura semántica para contenido detallado -->
+            <article class="blog-article">
+                <!-- Título principal del artículo -->
+                <h1 class="mb-4">El vino más prestigioso de Chile</h1>
+                
+                <!-- Metadatos del artículo - Información sobre la publicación -->
+                <div class="blog-meta mb-4">
+                    <!-- Fecha de publicación y autor - Usando clases de Bootstrap para estilo -->
+                    <span class="text-muted">Publicado: 20 de septiembre, 2025</span>
+                    <span class="text-muted mx-2">|</span>
+                    <span class="text-muted">Por: Equipo Editorial</span>
+                </div>
 
-    <!-- inicio footer -->
-    <footer class="text-center py-4">
-      <p>&copy; Tienda de Bebidas</p>
-    </footer>
-    <!-- fin del footer -->
-  </div>
-  <!-- fin del container -->
+                <!-- Contenido principal del artículo -->
+                <div class="blog-content">
+                    <!-- Imagen principal - Usando clases de Bootstrap para responsividad -->
+                    <img src="https://images.unsplash.com/photo-1514361892635-cebbd6b8a52b?q=80&w=800" 
+                         alt="Viña Don Melchor" 
+                         class="img-fluid mb-4 rounded">
+                    
+                    <!-- Párrafo introductorio con estilo destacado -->
+                    <p class="lead">Don Melchor se ha consolidado como uno de los vinos más prestigiosos de Chile, reconocido mundialmente por su calidad excepcional y tradición vitivinícola.</p>
+                    
+                    <h2>Historia y Origen</h2>
+                    <p>Nacido en el Valle del Maipo, Don Melchor representa la culminación de años de experiencia en la elaboración de vinos premium. Su primera cosecha en 1987 marcó un hito en la industria vitivinícola chilena.</p>
+
+                    <h2>Reconocimientos Internacionales</h2>
+                    <p>A lo largo de su historia, Don Melchor ha recibido numerosos premios y reconocimientos de críticos internacionales, incluyendo puntuaciones superiores a 95 puntos en las principales publicaciones especializadas.</p>
+
+                    <h2>Características Únicas</h2>
+                    <ul>
+                        <li>Blend dominado por Cabernet Sauvignon</li>
+                        <li>Envejecimiento en barricas francesas</li>
+                        <li>Terruño excepcional al pie de la Cordillera de los Andes</li>
+                        <li>Producción limitada y numerada</li>
+                    </ul>
+
+                    <h2>Maridaje Recomendado</h2>
+                    <p>Este vino excepcional es perfecto para acompañar:</p>
+                    <ul>
+                        <li>Carnes rojas maduradas</li>
+                        <li>Cordero al horno</li>
+                        <li>Quesos añejos</li>
+                        <li>Platos de caza</li>
+                    </ul>
+                </div>
+                <!-- fin contenido -->
+
+                <!-- inicio compartir -->
+                <div class="share-section mt-5">
+                    <h3>Compartir artículo</h3>
+                    <div class="social-buttons mt-3">
+                        <button class="btn btn-primary me-2">Facebook</button>
+                        <button class="btn btn-info me-2">Twitter</button>
+                        <button class="btn btn-success">WhatsApp</button>
+                    </div>
+                </div>
+                <!-- fin compartir -->
+            </article>
+            <!-- fin article -->
+        </main>
+        <!-- fin main -->
+
+        <!-- Footer -->
+        <footer class="footer-global text-center py-4 mt-4" role="contentinfo" style="background:#757575;color:#fff;flex-shrink:0;">
+            <p class="mb-0">&copy; 2025 Jonathan JF. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Actualizar el contador del carrito al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            actualizarContadorCarrito(carrito);
+        });
+    </script>
 </body>
 </html>
