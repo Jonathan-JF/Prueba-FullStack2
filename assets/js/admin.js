@@ -1,16 +1,3 @@
-/**
- * Panel de Administración
- * 
- * Este archivo maneja todas las operaciones CRUD (Crear, Leer, Actualizar, Eliminar)
- * para productos y usuarios en el panel de administración.
- * 
- * Características principales:
- * - Gestión de productos y usuarios
- * - Persistencia de datos usando localStorage
- * - Validación de datos
- * - Interfaz de usuario dinámica
- */
-
 // Inicialización del panel cuando el DOM está listo
 window.addEventListener('DOMContentLoaded', () => {
 	const vista = document.getElementById('vistaAdmin');
@@ -42,15 +29,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		{ id: 2, run: '20123456K', nombre: 'Ana', apellidos: 'Gómez', correo: 'ana@gmail.com' }
 	];
 
-	/**
-	 * Renderiza la tabla de productos
-	 * 
-	 * Funcionalidad:
-	 * - Ordena productos por ID
-	 * - Genera tabla HTML dinámica
-	 * - Incluye botones de acción por producto
-	 * - Actualiza la vista en tiempo real
-	 */
+
 	function renderProductos() {
 		// Ordenar productos por ID para mantener consistencia
 		const productosOrdenados = [...productos].sort((a, b) => a.id - b.id);
@@ -76,7 +55,6 @@ window.addEventListener('DOMContentLoaded', () => {
 			</table>
 			<div id="formProducto"></div>
 		`;
-	// Se eliminó la función importarProductosBase por redundancia
 	}
 
 	window.mostrarFormProducto = function() {

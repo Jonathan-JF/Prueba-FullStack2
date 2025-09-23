@@ -15,13 +15,6 @@ function validarInicioSesion() {
             isValid = false;
         }
     }
-
-    // Validación de contraseña
-    if (!password.value || password.value.length < 4 || password.value.length > 10) {
-        alert('La contraseña debe tener entre 4 y 10 caracteres');
-        isValid = false;
-    }
-
     return isValid;
 }
 

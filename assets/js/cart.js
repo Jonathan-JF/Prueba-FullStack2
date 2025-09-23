@@ -5,10 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const btnPagar = document.getElementById('btnPagar');
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
-    /**
-     * Actualiza el contador del carrito en el navbar
-     * Muestra la cantidad total de items en el carrito
-     */
+
     function actualizarContadorCarrito() {
         const carritoCounters = document.querySelectorAll('.badge.bg-danger');
         const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
@@ -24,12 +21,6 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /**
-     * Renderiza los productos del carrito en la tabla
-     * - Calcula subtotales por producto
-     * - Actualiza el total general
-     * - Genera los botones de control para cada producto
-     */
     function renderCarrito() {
         tabla.innerHTML = '';
         let total = 0;

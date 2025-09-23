@@ -1,15 +1,3 @@
-/**
- * Sistema de Validación de Formularios
- * 
- * Este archivo contiene la lógica de validación para los formularios de la aplicación:
- * - Validación en tiempo real
- * - Mensajes de error personalizados
- * - Feedback visual usando clases de Bootstrap
- * - Prevención de envío de datos inválidos
- * 
- * Utiliza el sistema de validación de Bootstrap para mostrar estados de los campos
- */
-
 // Inicialización cuando el DOM está listo
 window.addEventListener('DOMContentLoaded', () => {
 	const form = document.getElementById('formContacto');
@@ -22,15 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	const errorComentario = document.getElementById('errorComentario');
 	const mensajeExito = document.getElementById('mensajeExito');
 
-	/**
-	 * Valida el campo de nombre
-	 * @returns {boolean} true si el nombre es válido, false si no
-	 * 
-	 * Reglas de validación:
-	 * - No puede estar vacío
-	 * - Máximo 100 caracteres
-	 * - Se eliminan espacios al inicio y final
-	 */
+
 	function validarNombre() {
 		if (!nombre.value.trim()) {
 			errorNombre.textContent = 'El nombre es requerido.';

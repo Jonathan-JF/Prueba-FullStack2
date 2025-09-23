@@ -58,8 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     correo: security.sanitizeInput(correo),
                     password: password, // La contraseña debería hashearse en un entorno real
                     fechaNacimiento: document.getElementById('fechaNacimiento').value,
-                    region: security.sanitizeInput(region),
-                    comuna: security.sanitizeInput(comuna),
                     direccion: security.sanitizeInput(direccion),
                     telefono: security.sanitizeInput(document.getElementById('telefono').value),
                     tipo: 'Cliente',

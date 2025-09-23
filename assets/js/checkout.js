@@ -133,9 +133,9 @@ class CheckoutManager {
 
         // Lista de cupones válidos (en un sistema real, esto estaría en el backend)
         const cupones = {
-            'WELCOME10': 10,
-            'SUMMER20': 20,
-            'SPECIAL30': 30
+            'BIENVENIDO10': 10,
+            'VERANO20': 20,
+            'ESPECIAL30': 30
         };
 
         if (cupones[cupon]) {

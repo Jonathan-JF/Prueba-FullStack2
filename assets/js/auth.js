@@ -1,18 +1,3 @@
-/**
- * Sistema de Autenticación y Validación
- * Este archivo contiene todas las funciones necesarias para validar y autenticar usuarios
- */
-
-/**
- * Valida un RUT chileno
- * @param {string} rut - RUT a validar (sin puntos ni guión)
- * @returns {boolean} - true si el RUT es válido, false si no
- * 
- * Algoritmo de validación:
- * 1. Limpia el RUT dejando solo números y K
- * 2. Aplica el algoritmo de módulo 11
- * 3. Compara el dígito verificador calculado con el proporcionado
- */
 function validarRut(rut) {
     if (!rut || rut.length < 7 || rut.length > 9) return false;
     
@@ -37,16 +22,7 @@ function validarRut(rut) {
     return dv.toString() === dvEsperado;
 }
 
-/**
- * Valida un correo electrónico según dominios permitidos
- * @param {string} correo - Correo electrónico a validar
- * @returns {boolean} - true si el correo es válido, false si no
- * 
- * Características:
- * - Solo acepta dominios específicos (duoc.cl, profesor.duoc.cl, gmail.com)
- * - Longitud máxima de 100 caracteres
- * - No sensible a mayúsculas/minúsculas
- */
+
 function validarCorreo(correo) {
     // Lista de dominios permitidos en la aplicación
     const dominiosPermitidos = ['@duoc.cl', '@profesor.duoc.cl', '@gmail.com'];
@@ -61,8 +37,6 @@ function validarCamposRegistro() {
     const apellidos = document.getElementById('apellidos');
     const correo = document.getElementById('correo');
     const direccion = document.getElementById('direccion');
-    const region = document.getElementById('region');
-    const comuna = document.getElementById('comuna');
 
     // Validación RUT
     if (!validarRut(rut.value)) {
@@ -93,13 +67,6 @@ function validarCamposRegistro() {
         alert('La dirección es requerida y debe tener máximo 300 caracteres');
         return false;
     }
-
-    // Validación región y comuna
-    if (!region.value || !comuna.value) {
-        alert('Debe seleccionar una región y una comuna');
-        return false;
-    }
-
     return true;
 }
 
@@ -117,8 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     apellidos: document.getElementById('apellidos').value,
                     correo: document.getElementById('correo').value,
                     direccion: document.getElementById('direccion').value,
-                    region: document.getElementById('region').value,
-                    comuna: document.getElementById('comuna').value,
                     tipo: 'Cliente' // Por defecto al registrarse desde la tienda
                 };
                 
