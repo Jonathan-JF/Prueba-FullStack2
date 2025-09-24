@@ -2,69 +2,76 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Panel Administrador | Tienda de Bebidas</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Administrador | Tienda de Bebidas</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body>
-		<div class="container-fluid admin-container">
-			<header class="row align-items-center">
+  <div class="container-fluid">
+    <!-- Header -->
+    <header class="row bg-dark text-white p-3 align-items-center">
+      <div class="col">
+        <h1 class="h4 mb-0">Panel Administrador</h1>
+      </div>
+      <div class="col-auto">
+        <button class="btn btn-outline-light" onclick="salirAdmin()">Salir</button>
+      </div>
+    </header>
 
-				<nav class="col navbar navbar-light bg-light" aria-label="Menú principal">
-					<span class="navbar-brand mb-0 h1">Panel Administrador</span>
-					<button class="btn btn-outline-danger ms-3" onclick="salirAdmin()">Salir</button>
-				</nav>
-			</header>
-			<div class="row">
-				<aside class="col-md-3 bg-light vh-100 p-0 d-flex flex-column admin-aside" role="complementary">
-					<nav class="flex-grow-1">
-						<ul class="nav flex-column px-3 pt-4">
-							<li class="nav-item mb-3">
-								<a class="nav-link d-flex align-items-center" href="#productos" id="menuProductos">
-									<span class="me-2"><i class="bi bi-box-seam"></i></span> Productos
-								</a>
-							</li>
-							<li class="nav-item mb-3">
-								<a class="nav-link d-flex align-items-center" href="#usuarios" id="menuUsuarios">
-									<span class="me-2"><i class="bi bi-people"></i></span> Usuarios
-								</a>
-							</li>
-							<li class="nav-item mb-3">
-								<a class="nav-link d-flex align-items-center" href="#nuevoProducto" onclick="mostrarFormProducto()">
-									<span class="me-2"><i class="bi bi-plus-square"></i></span> Nuevo Producto
-								</a>
-							</li>
-							<li class="nav-item mb-3">
-								<a class="nav-link d-flex align-items-center" href="#nuevoUsuario" onclick="mostrarFormUsuario()">
-									<span class="me-2"><i class="bi bi-person-plus"></i></span> Nuevo Usuario
-								</a>
-							</li>
-						</ul>
-					</nav>
-				</aside>
-				<!-- fin del aside -->
-				<!-- inicio main admin -->
-				<main class="col-md-9 admin-main" role="main">
-					<div id="vistaAdmin"></div>
-				</main>
-				<!-- fin del main admin -->
-			</div>
-			<!-- fin del row principal -->
+    <div class="row">
+      <!-- Sidebar -->
+      <aside class="col-md-3 col-lg-2 bg-light p-3">
+        <nav>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="mostrarVista('productos')">
+                <i class="bi bi-box-seam me-2"></i> Productos
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="mostrarVista('usuarios')">
+                <i class="bi bi-people me-2"></i> Usuarios
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="mostrarVista('nuevoProducto')">
+                <i class="bi bi-plus-square me-2"></i> Nuevo Producto
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="mostrarVista('nuevoUsuario')">
+                <i class="bi bi-person-plus me-2"></i> Nuevo Usuario
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
 
-		</div>
-		<!-- fin del container-fluid -->
+      <!-- Main -->
+      <main class="col-md-9 col-lg-10 p-4">
+        <div id="vistaAdmin">
+          <p class="text-muted">Selecciona una opción del menú para empezar.</p>
+        </div>
+      </main>
+    </div>
+  </div>
 
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="js/admin.js"></script>
-	<script src="js/footer.js"></script>
-<script src="js/productos.js"></script>
-<script>
-function salirAdmin() {
-	window.location.href = 'index.html';
-}
-</script>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/scripts.js" defer></script>
+  <script>
+    function salirAdmin() {
+      window.location.href = 'index.html';
+    }
+
+    function mostrarVista(vista) {
+      const contenedor = document.getElementById('vistaAdmin');
+      contenedor.innerHTML = `<h2 class="mb-3">${vista}</h2><p>Aquí se mostrará la gestión de <b>${vista}</b>.</p>`;
+    }
+  </script>
 </body>
 </html>

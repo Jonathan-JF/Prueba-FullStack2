@@ -1,135 +1,121 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El vino más prestigioso de Chile | Tienda de Bebidas</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <script src="js/productos.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blogs Detalle | Tienda de Bebidas</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <!-- Contenedor principal-->
-    <div class="container container-gray" style="min-height:100vh;display:flex;flex-direction:column;">
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-white rounded shadow-sm mb-4">
-            <div class="container-fluid">
-                <!-- Logo -->
-                <a class="navbar-brand" href="index.html">
-                    <img src="https://i.imgur.com/qu5V6xN.png" alt="Logo Tienda de Bebidas" height="50">
-                </a>
-                
-                <!-- Botón-->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <!-- Menú -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="productos.html">Productos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="nosotros.html">Nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="blogs.html">Blogs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contacto.html">Contacto</a>
-                        </li>
-                    </ul>
-                    
-                    <!-- Botones de usuario y carrito -->
-                    <div class="d-flex align-items-center gap-3">
-                        <a href="carrito.html" class="btn btn-outline-primary position-relative">
-                            <i class="bi bi-cart"></i> Carrito
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                0
-                            </span>
-                        </a>
-                        <a href="login.html" class="btn btn-outline-secondary">
-                            <i class="bi bi-person"></i> Login
-                        </a>
-                        <a href="registro.html" class="btn btn-primary">
-                            Registro
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </nav>
+  <!-- Contenedor principal -->
+  <div class="container" style="min-height:100vh;display:flex;flex-direction:column;">
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">MiTienda</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+            <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+            <li class="nav-item"><a class="nav-link active" href="blogs.html">Blogs</a></li>
+            <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="carrito.html">Carrito 🛒</a></li>
+            <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="registro.html">Registro</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-        <!-- Main - Contenedor principal del contenido -->
-        <main>
-            <article class="blog-article">
-                <h1 class="mb-4">El vino más prestigioso de Chile</h1>
-                
-                <div class="blog-meta mb-4">
-                    <span class="text-muted">Publicado: 20 de septiembre, 2025</span>
-                    <span class="text-muted mx-2">|</span>
-                    <span class="text-muted">Por: Equipo Editorial</span>
-                </div>
+    <!-- Main -->
+    <main style="flex:1 0 auto;">
+      
+      <!-- Artículo 1 -->
+      <article class="mb-5">
+        <h1 class="mb-4">El vino más prestigioso de Chile</h1>
+        <p class="text-muted">Publicado: 20 de septiembre, 2025 | Por: Equipo Editorial</p>
+        <img src="https://donmelchor.com/wp-content/uploads/2024/11/Post-Web-DM-2-1024x683.jpg" 
+             alt="Viña Don Melchor" class="img-fluid mb-4 rounded">
 
-                <div class="blog-content">
-                    <img src="https://donmelchor.com/wp-content/uploads/2024/11/Post-Web-DM-2-1024x683.jpg" 
-                         alt="Viña Don Melchor" 
-                         class="img-fluid mb-4 rounded">
-                    
-                    <p class="lead">Don Melchor se ha consolidado como uno de los vinos más prestigiosos de Chile, reconocido mundialmente por su calidad excepcional y tradición vitivinícola.</p>
-                    
-                    <h2>Historia y Origen</h2>
-                    <p>Nacido en el Valle del Maipo, Don Melchor representa la culminación de años de experiencia en la elaboración de vinos premium. Su primera cosecha en 1987 marcó un hito en la industria vitivinícola chilena.</p>
+        <p class="lead">Don Melchor se ha consolidado como uno de los vinos más prestigiosos de Chile, reconocido mundialmente por su calidad excepcional y tradición vitivinícola.</p>
+        
+        <h2>Historia y Origen</h2>
+        <p>Nacido en el Valle del Maipo, Don Melchor representa la culminación de años de experiencia en la elaboración de vinos premium. Su primera cosecha en 1987 marcó un hito en la industria vitivinícola chilena.</p>
 
-                    <h2>Reconocimientos Internacionales</h2>
-                    <p>A lo largo de su historia, Don Melchor ha recibido numerosos premios y reconocimientos de críticos internacionales, incluyendo puntuaciones superiores a 95 puntos en las principales publicaciones especializadas.</p>
+        <h2>Reconocimientos Internacionales</h2>
+        <p>A lo largo de su historia, Don Melchor ha recibido numerosos premios y reconocimientos de críticos internacionales, incluyendo puntuaciones superiores a 95 puntos en las principales publicaciones especializadas.</p>
 
-                    <h2>Características Únicas</h2>
-                    <ul>
-                        <li>Blend dominado por Cabernet Sauvignon</li>
-                        <li>Envejecimiento en barricas francesas</li>
-                        <li>Terruño excepcional al pie de la Cordillera de los Andes</li>
-                        <li>Producción limitada y numerada</li>
-                    </ul>
+        <h2>Características Únicas</h2>
+        <ul>
+          <li>Blend dominado por Cabernet Sauvignon</li>
+          <li>Envejecimiento en barricas francesas</li>
+          <li>Terruño excepcional al pie de la Cordillera de los Andes</li>
+          <li>Producción limitada y numerada</li>
+        </ul>
 
-                    <h2>Maridaje Recomendado</h2>
-                    <p>Este vino excepcional es perfecto para acompañar:</p>
-                    <ul>
-                        <li>Carnes rojas maduradas</li>
-                        <li>Cordero al horno</li>
-                        <li>Quesos añejos</li>
-                        <li>Platos de caza</li>
-                    </ul>
-                </div>
-                <!-- fin contenido -->
+        <h2>Maridaje Recomendado</h2>
+        <p>Este vino excepcional es perfecto para acompañar:</p>
+        <ul>
+          <li>Carnes rojas maduradas</li>
+          <li>Cordero al horno</li>
+          <li>Quesos añejos</li>
+          <li>Platos de caza</li>
+        </ul>
+      </article>
 
-                <!-- inicio compartir -->
-                <div class="share-section mt-5">
-                    <h3>Compartir artículo</h3>
-                    <div class="social-buttons mt-3">
-                        <button class="btn btn-primary me-2">Facebook</button>
-                        <button class="btn btn-info me-2">Twitter</button>
-                        <button class="btn btn-success">WhatsApp</button>
-                    </div>
-                </div>
-                <!-- fin compartir -->
-            </article>
-            <!-- fin article -->
-        </main>
-        <!-- fin main -->
-    </div>
+      <hr class="my-5">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/footer.js"></script>
-    <script>
-        // Actualizar el contador del carrito al cargar la página
-        document.addEventListener('DOMContentLoaded', function() {
-            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            actualizarContadorCarrito(carrito);
-        });
-    </script>
+      <!-- Artículo 2 -->
+      <article>
+        <h1 class="mb-4">La bebida energética de Chile</h1>
+        <p class="text-muted">Publicado: 20 de septiembre, 2025 | Por: Equipo Editorial</p>
+        <img src="https://scoreenergydrink.com/cdn/shop/files/SCOREGORILLA500ML_9e93e49e-5f8c-43b1-a992-108f18bec960.jpg?v=1734648539&width=800" 
+             alt="Score Energy Drink" class="img-fluid mb-4 rounded">
+
+        <p class="lead">Score Energy Drink se ha convertido en la bebida energética más popular de Chile, destacando por su sabor intenso y energía duradera.</p>
+        
+        <h2>Origen y Popularidad</h2>
+        <p>Esta bebida fue lanzada en Chile con el objetivo de competir con marcas internacionales, pero rápidamente ganó terreno gracias a su sabor y su cercanía con los jóvenes.</p>
+
+        <h2>Características</h2>
+        <ul>
+          <li>Formato de 500ml ideal para el consumo diario</li>
+          <li>Sabor intenso y refrescante</li>
+          <li>Aporte de energía duradera</li>
+          <li>Precio accesible comparado con la competencia</li>
+        </ul>
+
+        <h2>Impacto en el Mercado</h2>
+        <p>Score Energy Drink ha logrado consolidarse como líder en el mercado chileno de bebidas energéticas, siendo ampliamente consumida en universidades, eventos deportivos y fiestas juveniles.</p>
+      </article>
+
+      <!-- Botones para compartir -->
+      <section class="mt-5">
+        <h3>Compartir estos artículos</h3>
+        <div class="d-flex gap-2 mt-3">
+          <button class="btn btn-primary">Facebook</button>
+          <button class="btn btn-info">Twitter</button>
+          <button class="btn btn-success">WhatsApp</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-4">
+      <p>&copy; 2025 MiTienda | Todos los derechos reservados</p>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/scripts.js" defer></script>
 </body>
 </html>

@@ -3,88 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nosotros | Tienda de Bebidas</title>
+  <title>Nosotros</title>
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="js/productos.js" defer></script>
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-  <div class="container container-gray">
-    <!-- Navbar moderna y responsive -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white rounded shadow-sm mb-4">
-      <div class="container-fluid">
-        <!-- Logo -->
-        <a class="navbar-brand" href="index.html">
-          <img src="https://i.imgur.com/qu5V6xN.png" alt="Logo Tienda de Bebidas" height="50">
-        </a>
-        
-        <!-- Botón hamburguesa para móvil -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <!-- Menú colapsable -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="productos.html">Productos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="nosotros.html">Nosotros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="blogs.html">Blogs</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contacto.html">Contacto</a>
-            </li>
-          </ul>
-          
-          <!-- Botones de usuario y carrito -->
-          <div class="d-flex align-items-center gap-3">
-            <a href="carrito.html" class="btn btn-outline-primary position-relative">
-              <i class="bi bi-cart"></i> Carrito
-              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                0
-              </span>
-            </a>
-            <a href="login.html" class="btn btn-outline-secondary">
-              <i class="bi bi-person"></i> Login
-            </a>
-            <a href="registro.html" class="btn btn-primary">
-              Registro
-            </a>
-          </div>
-        </div>
+  <!-- Header -->
+  <header class="bg-dark text-white">
+    <nav class="navbar navbar-expand-lg navbar-dark container">
+      <a class="navbar-brand" href="index.html">Mi Tienda</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link active" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="blogs.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="carrito.html">Carrito 🛒</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+        </ul>
       </div>
     </nav>
+  </header>
 
-    <main>
-      <section class="mb-4">
-        <h2 class="mb-4">Sobre la Tienda</h2>
-  <div class="container-gray">
-          <p>Somos una tienda dedicada a ofrecer las mejores bebidas nacionales e internacionales. Nuestro equipo está formado por estudiantes y desarrolladores apasionados por la tecnología y la innovación.</p>
-          <ul>
-            <li>Jonathan JF - Desarrollador principal</li>
-            <li>Equipo de colaboradores - Duoc UC</li>
-          </ul>
-        </div>
-      </section>
-    </main>
+  <!-- Main -->
+  <main class="container my-5">
+    <h1 class="mb-4">Sobre Nosotros</h1>
+    <p>
+      Somos una tienda dedicada a ofrecer las mejores bebidas nacionales e internacionales.  
+      Nuestro equipo está formado por estudiantes y desarrolladores apasionados por la tecnología y la innovación.
+    </p>
+    <h2 class="mt-4">Nuestro Equipo</h2>
+    <ul>
+      <li>Jonathan JF – Desarrollador principal</li>
+      <li>Equipo de colaboradores – Duoc UC</li>
+    </ul>
+  </main>
 
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 Mi Tienda | Desarrollado por [Jonathan]</p>
+  </footer>
 
-  </div>
-
+  <!-- Bootstrap JS -->
+   <script src="assets/js/scripts.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/footer.js"></script>
-  <script>
-		// Actualizar el contador del carrito al cargar la página
-		document.addEventListener('DOMContentLoaded', function() {
-			const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-			actualizarContadorCarrito(carrito);
-		});
-	</script>
 </body>
 </html>

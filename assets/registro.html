@@ -1,225 +1,66 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Registro | Tienda de Bebidas</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-	<link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-	<!-- inicio container -->
-  <!-- Contenedor principal con diseño de flexbox para footer sticky -->
-  <div class="container container-gray" style="min-height:100vh;display:flex;flex-direction:column;">
-    <!-- Navbar moderna y responsive -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white rounded shadow-sm mb-4">
-      <div class="container-fluid">
-        <!-- Logo -->
-        <a class="navbar-brand" href="index.html">
-          <img src="https://i.imgur.com/qu5V6xN.png" alt="Logo Tienda de Bebidas" height="50">
-        </a>
-        
-        <!-- Botón hamburguesa para móvil -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <!-- Menú colapsable -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="productos.html">Productos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="nosotros.html">Nosotros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="blogs.html">Blogs</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contacto.html">Contacto</a>
-            </li>
-          </ul>
-          
-          <!-- Botones de usuario y carrito -->
-          <div class="d-flex align-items-center gap-3">
-            <a href="carrito.html" class="btn btn-outline-primary position-relative">
-              <i class="bi bi-cart"></i> Carrito
-              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                0
-              </span>
-            </a>
-            <a href="login.html" class="btn btn-outline-secondary">
-              <i class="bi bi-person"></i> Login
-            </a>
-            <a href="registro.html" class="btn btn-primary">
-              Registro
-            </a>
-          </div>
-        </div>
+  <!-- Header -->
+  <header class="bg-dark text-white">
+    <nav class="navbar navbar-expand-lg navbar-dark container">
+      <a class="navbar-brand" href="index.html">Mi Tienda</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="blogs.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="carrito.html">Carrito 🛒</a></li>
+          <li class="nav-item"><a class="nav-link active" href="registro.html">Registro</a></li>
+        </ul>
       </div>
     </nav>
-		</header>
-		<!-- fin del header -->
+  </header>
 
-		<!-- Main - Contenedor principal -->
-		<main style="flex:1 0 auto;" class="py-5">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-md-8 col-lg-6">
-						<!-- Tarjeta de registro con diseño moderno -->
-						<div class="card border-0 shadow-lg rounded-4 p-3 p-md-4">
-							<div class="card-body">
-								<div class="text-center mb-4">
-									<h2 class="fw-bold">Crear Cuenta</h2>
-									<p class="text-muted">Completa tus datos para registrarte</p>
-								</div>
-								
-								<!-- Formulario de registro mejorado -->
-								<form id="formRegistro" class="mb-4">
-									<!-- RUT -->
-									<div class="form-floating mb-3">
-										<input type="text" class="form-control rounded-3" id="rut" 
-											   placeholder="12345678K" minlength="7" maxlength="9" required>
-										<label for="rut">
-											<i class="bi bi-person-vcard"></i> RUT (sin puntos ni guión)
-										</label>
-										<div class="invalid-feedback" id="errorRut"></div>
-									</div>
+  <!-- Main -->
+  <main class="container my-5">
+    <h1 class="mb-4">Crear cuenta</h1>
+    <form id="form-registro" class="p-4 border rounded bg-light">
+      <div class="mb-3">
+        <label for="reg-nombre" class="form-label">Nombre completo</label>
+        <input type="text" class="form-control" id="reg-nombre" maxlength="50" required>
+      </div>
+      <div class="mb-3">
+        <label for="reg-correo" class="form-label">Correo electrónico</label>
+        <input type="email" class="form-control" id="reg-correo" maxlength="100" required>
+        <small class="text-muted">Solo se permiten correos @duoc.cl, @profesor.duoc.cl y @gmail.com</small>
+      </div>
+      <div class="mb-3">
+        <label for="reg-pass" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="reg-pass" minlength="4" maxlength="10" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Registrarme</button>
+      <a href="login.html" class="btn btn-link">Ya tengo cuenta</a>
+    </form>
+  </main>
 
-									<!-- Nombre y Apellidos en una fila -->
-									<div class="row g-3 mb-3">
-										<div class="col-md-6">
-											<div class="form-floating">
-												<input type="text" class="form-control rounded-3" id="nombre" 
-													   placeholder="Nombre" maxlength="50" required>
-												<label for="nombre">
-													<i class="bi bi-person"></i> Nombre
-												</label>
-												<div class="invalid-feedback" id="errorNombre"></div>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-floating">
-												<input type="text" class="form-control rounded-3" id="apellidos" 
-													   placeholder="Apellidos" maxlength="100" required>
-												<label for="apellidos">
-													<i class="bi bi-person"></i> Apellidos
-												</label>
-												<div class="invalid-feedback" id="errorApellidos"></div>
-											</div>
-										</div>
-									</div>
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 Mi Tienda | Desarrollado por [Jonathan]</p>
+  </footer>
 
-									<!-- Correo -->
-									<div class="form-floating mb-3">
-										<input type="email" class="form-control rounded-3" id="correo" 
-											   placeholder="nombre@duoc.cl" maxlength="100" required>
-										<label for="correo">
-											<i class="bi bi-envelope"></i> Correo electrónico
-										</label>
-										<small class="form-text text-muted ms-2">
-											<i class="bi bi-info-circle"></i> 
-											Solo se permiten correos @duoc.cl, @profesor.duoc.cl y @gmail.com
-										</small>
-										<div class="invalid-feedback" id="errorCorreo"></div>
-									</div>
-
-									<!-- Contraseñas en una fila -->
-									<div class="row g-3 mb-3">
-										<div class="col-md-6">
-											<div class="form-floating">
-												<input type="password" class="form-control rounded-3" id="password" 
-													   placeholder="Contraseña" minlength="4" maxlength="10" required>
-												<label for="password">
-													<i class="bi bi-lock"></i> Contraseña
-												</label>
-												<small class="form-text text-muted ms-2">
-													<i class="bi bi-info-circle"></i> 
-													Entre 4 y 10 caracteres
-												</small>
-												<div class="invalid-feedback" id="errorPassword"></div>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-floating">
-												<input type="password" class="form-control rounded-3" id="confirmPassword" 
-													   placeholder="Confirmar contraseña" minlength="4" maxlength="10" required>
-												<label for="confirmPassword">
-													<i class="bi bi-lock-fill"></i> Confirmar contraseña
-												</label>
-												<div class="invalid-feedback" id="errorConfirmPassword"></div>
-											</div>
-										</div>
-									</div>
-
-									<!-- Fecha de Nacimiento -->
-									<div class="form-floating mb-3">
-										<input type="date" class="form-control rounded-3" id="fechaNacimiento" 
-											   placeholder="Fecha de nacimiento">
-										<label for="fechaNacimiento">
-											<i class="bi bi-calendar"></i> Fecha de nacimiento
-										</label>
-										<div class="invalid-feedback" id="errorFechaNacimiento"></div>
-									</div>
-
-									<!-- Dirección -->
-									<div class="form-floating mb-3">
-										<input type="text" class="form-control rounded-3" id="direccion" 
-											   placeholder="Dirección" maxlength="300" required>
-										<label for="direccion">
-											<i class="bi bi-house"></i> Dirección
-										</label>
-										<div class="invalid-feedback" id="errorDireccion"></div>
-									</div>
-
-									<!-- Teléfono -->
-									<div class="form-floating mb-4">
-										<input type="tel" class="form-control rounded-3" id="telefono" 
-											   placeholder="Teléfono">
-										<label for="telefono">
-											<i class="bi bi-telephone"></i> Teléfono (opcional)
-										</label>
-										<div class="invalid-feedback" id="errorTelefono"></div>
-									</div>
-
-									<!-- Botones -->
-									<div class="d-grid gap-2">
-										<button type="submit" class="btn btn-primary btn-lg rounded-3">
-											<i class="bi bi-person-check"></i> Crear cuenta
-										</button>
-										<a href="login.html" class="btn btn-outline-secondary rounded-3">
-											<i class="bi bi-arrow-left"></i> Ya tengo una cuenta
-										</a>
-									</div>
-								</form>
-								
-								<!-- Mensaje de éxito -->
-								<div id="mensajeExitoRegistro" class="alert alert-success d-none rounded-3">
-									<i class="bi bi-check-circle"></i> ¡Registro exitoso!
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</main>
-
-		<!-- Scripts -->
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-		<script src="js/security.js"></script>
-		<script src="js/registro.js"></script>
-		<script src="js/footer.js"></script>
-		<script src="js/productos.js"></script>
-		<script>
-		// Actualizar el contador del carrito al cargar la página
-		document.addEventListener('DOMContentLoaded', function() {
-		const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-		actualizarContadorCarrito(carrito);
-		});
-		</script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Script propio -->
+  <script src="assets/js/scripts.js" defer></script>
 </body>
 </html>
+

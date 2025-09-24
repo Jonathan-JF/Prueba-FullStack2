@@ -1,4 +1,4 @@
-/* Variables CSS Globales - Definición del sistema de diseño */
+/* Variables CSS Globales */
 :root {
     --primary-gradient: linear-gradient(90deg, #c5c9c8 0%, #b0abab 100%);
     --reverse-gradient: linear-gradient(90deg, #20cbea 0%, #43c6ac 100%);
@@ -15,15 +15,14 @@
     --font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
 }
 
-/* Estilos Base - Configuración fundamental del sitio */
-/* Aplica el gradiente de fondo y la tipografía principal */
+/* Estilos Base */
 body {
     background: var(--body-gradient);
     font-family: var(--font-family);
+    color: #fff;
 }
 
-/* Contenedores - Componentes estructurales básicos */
-/* Proporciona un fondo claro con sombra y bordes redondeados */
+/* Contenedor gris reutilizable */
 .container-gray {
     background: var(--container-bg);
     border-radius: var(--radius-lg);
@@ -32,30 +31,38 @@ body {
     margin: var(--spacing-lg) 0;
 }
 
-/* Sección Hero */
-.hero-section {
+/* Header */
+header {
     background: var(--primary-gradient);
-    border-radius: var(--radius-md);
-    box-shadow: 0 4px 24px rgba(146, 149, 148, 0.12);
-    padding: var(--spacing-md) var(--spacing-sm);
-    margin-bottom: var(--spacing-md);
-}
-
-.hero-title {
     color: var(--primary-color);
-    font-weight: 700;
-    letter-spacing: 1px;
 }
 
-.hero-lead {
-    color: var(--secondary-color);
-    font-size: 1.2rem;
-}
-
-.hero-img {
-    max-width: 380px;
+/* Sidebar */
+aside {
+    background: var(--container-bg);
+    min-height: 100vh;
     border-radius: var(--radius-md);
-    box-shadow: 0 2px 16px var(--shadow-color);
+}
+
+aside .nav-link {
+    color: #fff;
+    padding: 10px;
+    border-radius: var(--radius-md);
+    transition: background 0.3s;
+}
+
+aside .nav-link:hover {
+    background: var(--reverse-gradient);
+    color: #fff;
+}
+
+/* Main */
+main {
+    background: var(--container-bg);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-md);
+    color: #fff;
 }
 
 /* Botones */
@@ -65,86 +72,19 @@ body {
     border: none;
     font-weight: 600;
     box-shadow: 0 2px 8px rgba(67,198,172,0.10);
-    transition: background 0.3s, color 0.3s;
 }
 
 .btn-primary:hover {
     background: var(--reverse-gradient);
+    color: #fff;
 }
 
-/* Formularios */
-.form-control {
-    border-radius: var(--radius-md);
-    padding: 12px var(--spacing-sm);
-    border: 1px solid rgba(147, 149, 151, 0.1);
+.btn-outline-light {
+    border: 1px solid #fff;
+    color: #fff;
 }
 
-.form-control:focus {
-    border-color: #43c6ac;
-    box-shadow: 0 0 0 0.2rem rgba(67,198,172,0.25);
-}
-
-/* Productos */
-.producto-card {
-    background: var(--container-bg);
-    border-radius: var(--radius-md);
-    padding: var(--spacing-sm);
-    margin-bottom: var(--spacing-md);
-    box-shadow: 0 4px 16px var(--shadow-color);
-    transition: transform 0.3s;
-}
-
-.producto-card:hover {
-    transform: translateY(-5px);
-}
-
-.producto-card img {
-    width: 100%;
-    border-radius: var(--radius-md);
-    margin-bottom: var(--spacing-sm);
-}
-
-.precio {
-    color: var(--primary-color);
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
-/* Carrito */
-.carrito-item {
-    border-bottom: 1px solid rgba(204, 205, 208, 0.628);
-    padding: var(--spacing-sm) 0;
-}
-
-.carrito-total {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin: var(--spacing-md) 0;
-}
-
-/* Tabla */
-.table {
-    background: var(--container-bg);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-}
-
-.table th {
-    background: var(--primary-gradient);
-    color: var(--primary-color);
-    font-weight: 600;
-}
-
-/* Utilidades */
-.text-primary {
-    color: var(--primary-color);
-}
-
-.text-secondary {
-    color: var(white);
-}
-
-.bg-gradient {
-    background: var(--primary-gradient);
+.btn-outline-light:hover {
+    background: #fff;
+    color: var(--secondary-color);
 }

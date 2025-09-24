@@ -1,224 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Meta tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tienda de Bebidas: las mejores bebidas nacionales e internacionales.">
-    <title>Tienda de Bebidas</title>
-    
-    <!-- Estilos -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/animations.css">
-    
-    <!-- Scripts -->
-    <script src="js/security.js" defer></script>
-    <script src="js/productos.js" defer></script>
-    <script>
-        // Actualizar el contador del carrito al cargar la página
-        document.addEventListener('DOMContentLoaded', function() {
-            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            actualizarContadorCarrito(carrito);
-        });
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda Online - Home</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <!-- Container principal - Contiene todo el contenido de la página -->
-    <div class="container">
-        <!-- Navbar moderna y responsive -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-white rounded shadow-sm mb-4">
-            <div class="container-fluid">
-                <!-- Logo -->
-                <a class="navbar-brand" href="index.html">
-                    <img src="https://i.imgur.com/qu5V6xN.png" alt="Logo Tienda de Bebidas" height="50">
-                </a>
-                
-                <!-- Botón hamburguesa para móvil -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <!-- Menú colapsable -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="productos.html">Productos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="nosotros.html">Nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="blogs.html">Blogs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contacto.html">Contacto</a>
-                        </li>
-                    </ul>
-                    
-                    <!-- Botones de usuario y carrito -->
-                    <div class="d-flex align-items-center gap-3">
-                        <a href="carrito.html" class="btn btn-outline-primary position-relative">
-                            <i class="bi bi-cart"></i> Carrito
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                0
-                            </span>
-                        </a>
-                        <a href="login.html" class="btn btn-outline-secondary">
-                            <i class="bi bi-person"></i> Login
-                        </a>
-                        <a href="registro.html" class="btn btn-primary">
-                            Registro
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </nav>
+  <!-- Header y navegación -->
+  <header class="bg-dark text-white">
+    <nav class="navbar navbar-expand-lg navbar-dark container">
+      <a class="navbar-brand" href="index.html">Mi Tienda</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="blogs.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="carrito.html">Carrito 🛒</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-        <!-- Main - Contenido principal de la página -->
-        <main>
-            <!-- Hero Section Moderna -->
-            <section class="py-5 mb-5 bg-light rounded-4 position-relative overflow-hidden">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 p-5">
-                        <h1 class="display-4 fw-bold mb-4">Descubre el Mundo de las Bebidas</h1>
-                        <p class="lead fs-4 text-muted mb-4">
-                            Explora nuestra selección premium de bebidas nacionales e internacionales. 
-                            Encuentra tu próxima bebida favorita entre nuestras exclusivas opciones.
-                        </p>
-                        <div class="d-flex gap-3">
-                            <a href="productos.html" class="btn btn-primary btn-lg px-4 py-3 shadow-sm">
-                                Explorar Productos
-                            </a>
-                            <a href="nosotros.html" class="btn btn-outline-secondary btn-lg px-4 py-3">
-                                Conoce más
-                            </a>
-                        </div>
-                        <!-- Badges de características -->
-                        <div class="mt-4 d-flex gap-3">
-                            <span class="badge bg-primary bg-opacity-10 text-primary p-2">
-                                <i class="bi bi-truck"></i> Envío Gratis
-                            </span>
-                            <span class="badge bg-success bg-opacity-10 text-success p-2">
-                                <i class="bi bi-shield-check"></i> Productos Garantizados
-                            </span>
-                            <span class="badge bg-info bg-opacity-10 text-info p-2">
-                                <i class="bi bi-credit-card"></i> Pago Seguro
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 p-5">
-                        <div class="position-relative">
-                            <img src="https://images.unsplash.com/photo-1613395766428-4328b57f144f?q=80&w=1974&auto=format&fit=crop" 
-                                 alt="Bebidas Premium" 
-                                 class="img-fluid rounded-4 shadow-lg">
-                            <!-- Elemento decorativo -->
-                            <div class="position-absolute top-0 start-0 translate-middle bg-primary rounded-circle" 
-                                 style="width: 200px; height: 200px; opacity: 0.1;"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-                <!-- fin del section hero -->
-                <!-- inicio section destacados -->
-                <!-- Sección de Productos Destacados -->
-                <section class="py-5">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h2 class="fw-bold">Productos Destacados</h2>
-                        <a href="productos.html" class="btn btn-link text-decoration-none">
-                            Ver todos <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                    <!-- Grid de productos con estilos mejorados -->
-                    <div class="row g-4" id="productosDestacados"></div>
-                </section>
-                
-                <!-- fin del section destacados -->
-            </main>
-            <!-- fin del main -->
+  <!-- Contenido principal -->
+  <main class="container my-5">
+    <!-- Banner / Presentación -->
+    <section class="text-center mb-5">
+      <h1>Bienvenido a MiTienda</h1>
+      <p class="lead">Encuentra los mejores productos al mejor precio</p>
+      <img src="https://via.placeholder.com/900x300" class="img-fluid rounded" alt="Banner Tienda">
+    </section>
 
-            <!-- Footer Moderno -->
-            <footer class="footer mt-5 py-5 bg-light rounded-4">
-                <div class="container">
-                    <div class="row g-4">
-                        <!-- Columna de la empresa -->
-                        <div class="col-lg-4">
-                            <img src="https://i.imgur.com/qu5V6xN.png" alt="Logo Tienda de Bebidas" height="40" class="mb-3">
-                            <p class="text-muted">
-                                Tu destino premium para las mejores bebidas nacionales e internacionales. 
-                                Calidad y variedad garantizada.
-                            </p>
-                            <div class="d-flex gap-3 mt-3">
-                                <a href="#" class="text-muted text-decoration-none">
-                                    <i class="bi bi-facebook fs-5"></i>
-                                </a>
-                                <a href="#" class="text-muted text-decoration-none">
-                                    <i class="bi bi-instagram fs-5"></i>
-                                </a>
-                                <a href="#" class="text-muted text-decoration-none">
-                                    <i class="bi bi-twitter fs-5"></i>
-                                </a>
-                            </div>
-                        </div>
+    <!-- Lista de productos -->
+    <section>
+      <h2 class="mb-4">Productos destacados</h2>
+      <div class="row" id="lista-productos">
+        <!-- Aquí JS insertará productos automáticamente -->
+      </div>
+    </section>
+  </main>
 
-                        <!-- Enlaces rápidos -->
-                        <div class="col-6 col-lg-2">
-                            <h5 class="fw-bold mb-3">Enlaces</h5>
-                            <ul class="list-unstyled">
-                                <li class="mb-2"><a href="productos.html" class="text-muted text-decoration-none">Productos</a></li>
-                                <li class="mb-2"><a href="nosotros.html" class="text-muted text-decoration-none">Nosotros</a></li>
-                                <li class="mb-2"><a href="blogs.html" class="text-muted text-decoration-none">Blog</a></li>
-                                <li class="mb-2"><a href="contacto.html" class="text-muted text-decoration-none">Contacto</a></li>
-                            </ul>
-                        </div>
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 Mi Tienda | Desarrollado por [Jonathan]</p>
+  </footer>
 
-                        <!-- Información legal -->
-                        <div class="col-6 col-lg-2">
-                            <h5 class="fw-bold mb-3">Legal</h5>
-                            <ul class="list-unstyled">
-                                <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Términos</a></li>
-                                <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Privacidad</a></li>
-                                <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Cookies</a></li>
-                                <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Legal</a></li>
-                            </ul>
-                        </div>
-
-                        <!-- Newsletter -->
-                        <div class="col-lg-4">
-                            <h5 class="fw-bold mb-3">Newsletter</h5>
-                            <p class="text-muted">Suscríbete para recibir nuestras últimas novedades y ofertas exclusivas.</p>
-                            <div class="input-group mb-3">
-                                <input type="email" class="form-control" placeholder="Tu email" aria-label="Tu email">
-                                <button class="btn btn-primary" type="button">Suscribirse</button>
-                            </div>
-                            <small class="text-muted">
-                                <i class="bi bi-shield-check"></i> 
-                                Tu información está segura con nosotros.
-                            </small>
-                        </div>
-                    </div>
-
-                    <!-- Separador -->
-                    <hr class="my-4">
-
-                    <!-- Copyright -->
-                    <div class="row align-items-center">
-                        <div class="col-lg-6 text-center text-lg-start">
-                            <small class="text-muted">
-                                &copy; 2025 Tienda de Bebidas. Todos los derechos reservados.
-                            </small>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
-        <!-- fin del container -->
-
-        <!-- Scripts -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="js/productos.js"></script>
-        <!-- fin de scripts -->
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Script propio -->
+  <script src="js/script.js"></script>
 </body>
 </html>

@@ -1,106 +1,51 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Productos | Tienda de Bebidas</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-	<link rel="stylesheet" href="css/styles.css">
-	<script src="js/productos.js" defer></script>
-	<script>
-		// Actualizar el contador del carrito al cargar la página
-		document.addEventListener('DOMContentLoaded', function() {
-			const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-			actualizarContadorCarrito(carrito);
-		});
-	</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-	<!-- inicio container -->
-		<div class="container container-gray" style="min-height:100vh;display:flex;flex-direction:column;">
-		<!-- Navbar -->
-		<nav class="navbar navbar-expand-lg navbar-light bg-white rounded shadow-sm mb-4">
-			<div class="container-fluid">
-				<!-- Logo -->
-				<a class="navbar-brand" href="index.html">
-					<img src="https://i.imgur.com/qu5V6xN.png" alt="Logo Tienda de Bebidas" height="50">
-				</a>
-				
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-						aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				
-				<!-- Menú colapsable -->
-				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav me-auto">
-						<li class="nav-item">
-							<a class="nav-link active" href="productos.html">Productos</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="nosotros.html">Nosotros</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="blogs.html">Blogs</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="contacto.html">Contacto</a>
-						</li>
-					</ul>
-					
-					<!-- Botones de usuario y carrito -->
-					<div class="d-flex align-items-center gap-3">
-						<a href="carrito.html" class="btn btn-outline-primary position-relative">
-							<i class="bi bi-cart"></i> Carrito
-							<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-								0
-							</span>
-						</a>
-						<a href="login.html" class="btn btn-outline-secondary">
-							<i class="bi bi-person"></i> Login
-						</a>
-						<a href="registro.html" class="btn btn-primary">
-							Registro
-						</a>
-					</div>
-				</div>
-			</div>
-		</nav>
+  <!-- Header -->
+  <header class="bg-dark text-white">
+    <nav class="navbar navbar-expand-lg navbar-dark container">
+      <a class="navbar-brand" href="index.html">Mi Tienda</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="blogs.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="carrito.html">Carrito 🛒 <span class="badge bg-danger d-none">0</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-		<!-- inicio main -->
-		<main style="flex:1 0 auto;">
-			<!-- inicio section productos -->
-			<section>
-				
-				<!-- inicio skeleton loading -->
-				<div id="skeleton-loading" class="row">
-					<!-- Se generará dinámicamente -->
-				</div>
-				<!-- fin de skeleton loading -->
-				
-				<!-- inicio lista de productos -->
-				<div class="row lista-productos-section" id="listaProductos"></div>
-				<!-- fin de lista de productos -->
-				
-				<!-- inicio paginación -->
-				<div id="pagination" class="mt-4"></div>
-				<!-- fin de paginación -->
-			</section>
-			<!-- fin del section productos -->
-			
-			<!-- inicio toast container -->
-			<div id="notifications-container"></div>
-			<!-- fin de toast container -->
-		</main>
-		<!-- fin del main -->
+  <!-- Main -->
+<main class="container my-5">
+  <h1 class="mb-4">Lista de Productos</h1>
+  <div class="row" id="listaProductos"></div>
+</main>
 
-	</div>
-	<!-- fin del container -->
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="js/productos.js"></script>
-	<script src="js/footer.js"></script>
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 Mi Tienda | Desarrollado por [Jonathan]</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Script propio -->
+  <script src="assets/js/scripts.js" defer></script>
 </body>
 </html>
+
