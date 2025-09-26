@@ -1,3 +1,4 @@
 {
-    "ipynb.pasteImagesAsAttachments.enabled": true
+    "ipynb.pasteImagesAsAttachments.enabled": true,
+    "liveServer.settings.port": 5501
 }

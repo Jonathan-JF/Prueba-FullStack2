@@ -88,3 +88,23 @@ main {
     background: #fff;
     color: var(--secondary-color);
 }
+/* Estilo para cada tarjeta de producto */
+.card.h-100 {
+  background-color: var(--container-bg);
+  border: none;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  transition: transform 0.3s ease-in-out;
+}
+
+.card.h-100:hover {
+  transform: translateY(-5px);
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-img-top {
+  object-fit: cover;
+  height: 200px;
+}

@@ -1,33 +1,37 @@
 // =========================
 // Datos iniciales
 // =========================
-let productos = JSON.parse(localStorage.getItem("productos")) || [
-  {
-    id: 1,
-    nombre: "Vino Don Melchor",
-    precio: 20000,
-    imagen: "https://donmelchor.com/wp-content/uploads/2024/11/Post-Web-DM-2-1024x683.jpg",
-    descripcion: "Un vino chileno de clase mundial, ideal para ocasiones especiales.",
-    destacado: true
-  },
-  {
-    id: 2,
-    nombre: "Score Energy Drink",
-    precio: 1500,
-    imagen: "https://scoreenergydrink.com/cdn/shop/files/SCOREGORILLA500ML_9e93e49e-5f8c-43b1-a992-108f18bec960.jpg?v=1734648539&width=800",
-    descripcion: "La bebida energética favorita de los jóvenes.",
-    destacado: true
-  },
-  {
-    id: 3,
-    nombre: "Cerveza artesanal",
-    precio: 2500,
-    imagen: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=800",
-    descripcion: "Cerveza artesanal chilena, refrescante y con carácter.",
-    destacado: false
-  }
-];
-localStorage.setItem("productos", JSON.stringify(productos));
+let productos = JSON.parse(localStorage.getItem("productos"));
+if (!productos || productos.length === 0) {
+  // Inicializa los productos solo si no existen en localStorage
+  productos = [
+    {
+      id: 1,
+      nombre: "Vino Don Melchor",
+      precio: 20000,
+      imagen: "https://donmelchor.com/wp-content/uploads/2024/11/Post-Web-DM-2-1024x683.jpg",
+      descripcion: "Un vino chileno de clase mundial, ideal para ocasiones especiales.",
+      destacado: true
+    },
+    {
+      id: 2,
+      nombre: "Score Energy Drink",
+      precio: 1500,
+      imagen: "https://scoreenergydrink.com/cdn/shop/files/SCOREGORILLA500ML_9e93e49e-5f8c-43b1-a992-108f18bec960.jpg?v=1734648539&width=800",
+      descripcion: "La bebida energética favorita de los jóvenes.",
+      destacado: true
+    },
+    {
+      id: 3,
+      nombre: "Cerveza artesanal",
+      precio: 2500,
+      imagen: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=800",
+      descripcion: "Cerveza artesanal chilena, refrescante y con carácter.",
+      destacado: false
+    }
+  ];
+  localStorage.setItem("productos", JSON.stringify(productos));
+}
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -81,23 +85,24 @@ function mostrarCarrito() {
   contenedor.innerHTML = "";
   let total = 0;
 
-  carrito.forEach(item => {
+  const itemsHTML = carrito.map(item => {
     total += item.precio * item.cantidad;
-    contenedor.innerHTML += `
+    return `
       <div class="d-flex justify-content-between align-items-center border-bottom py-2">
         <div>
           <strong>${item.nombre}</strong><br>
           Cantidad: ${item.cantidad}
         </div>
         <div>
-          $${(item.precio * item.cantidad).toLocaleString()}
+          $${(item.precio * item.cantidad).toLocaleString('es-CL')}
           <button class="btn btn-sm btn-danger" onclick="eliminarDelCarrito(${item.id})">x</button>
         </div>
       </div>
     `;
   });
 
-  totalTexto.textContent = "Total: $" + total.toLocaleString();
+  contenedor.innerHTML = itemsHTML.join("");
+  totalTexto.textContent = "Total: $" + total.toLocaleString('es-CL');
 }
 
 // =========================
@@ -107,22 +112,24 @@ function mostrarProductos() {
   const lista = document.getElementById("lista-productos");
   if (!lista) return;
 
-  lista.innerHTML = "";
-  productos.forEach(prod => {
-    lista.innerHTML += `
-      <div class="col-md-3 mb-4">
-        <div class="card h-100">
-          <img src="${prod.imagen}" class="card-img-top" alt="${prod.nombre}">
-          <div class="card-body text-center">
-            <h5 class="card-title">${prod.nombre}</h5>
-            <p class="card-text">$${prod.precio.toLocaleString()}</p>
+  const productosHTML = productos.map(prod => `
+    <div class="col-md-3 mb-4">
+      <div class="card h-100">
+        <img src="${prod.imagen}" class="card-img-top" alt="${prod.nombre}">
+        <div class="card-body text-center d-flex flex-column">
+          <h5 class="card-title">${prod.nombre}</h5>
+          <p class="card-text">${prod.descripcion}</p>
+          <p class="fw-bold">$${prod.precio.toLocaleString('es-CL')}</p>
+          <div class="mt-auto">
             <a href="detalle.html?id=${prod.id}" class="btn btn-outline-primary">Ver detalle</a>
             <button class="btn btn-primary mt-2" onclick="agregarAlCarrito(${prod.id})">Añadir</button>
           </div>
         </div>
       </div>
-    `;
-  });
+    </div>
+  `).join("");
+
+  lista.innerHTML = productosHTML;
 }
 
 function mostrarDetalleProducto() {
@@ -143,10 +150,10 @@ function mostrarDetalleProducto() {
       <div class="col-md-6">
         <img src="${producto.imagen}" class="img-fluid rounded" alt="${producto.nombre}">
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 d-flex flex-column justify-content-center">
         <h2>${producto.nombre}</h2>
         <p>${producto.descripcion}</p>
-        <p><strong>Precio:</strong> $${producto.precio.toLocaleString()}</p>
+        <p><strong>Precio:</strong> $${producto.precio.toLocaleString('es-CL')}</p>
         <button class="btn btn-primary" onclick="agregarAlCarrito(${producto.id})">Añadir al carrito</button>
       </div>
     </div>
@@ -158,20 +165,24 @@ function mostrarDestacados() {
   if (!contenedor) return;
 
   const destacados = productos.filter(p => p.destacado);
-  contenedor.innerHTML = destacados.map(prod => `
+  const destacadosHTML = destacados.map(prod => `
     <div class="col-md-4">
       <div class="card h-100">
         <img src="${prod.imagen}" class="card-img-top" alt="${prod.nombre}" style="height:250px;object-fit:cover;">
-        <div class="card-body text-center">
+        <div class="card-body text-center d-flex flex-column">
           <h5 class="card-title">${prod.nombre}</h5>
-          <p class="card-text">${prod.descripcion}</p>
-          <p class="text-primary fw-bold">$${prod.precio.toLocaleString()}</p>
-          <a href="detalle.html?id=${prod.id}" class="btn btn-outline-primary">Ver detalle</a>
-          <button class="btn btn-primary mt-2" onclick="agregarAlCarrito(${prod.id})">Añadir</button>
+          <p class="card-text flex-grow-1">${prod.descripcion}</p>
+          <p class="text-primary fw-bold">$${prod.precio.toLocaleString('es-CL')}</p>
+          <div class="mt-auto">
+            <a href="detalle.html?id=${prod.id}" class="btn btn-outline-primary">Ver detalle</a>
+            <button class="btn btn-primary mt-2" onclick="agregarAlCarrito(${prod.id})">Añadir</button>
+          </div>
         </div>
       </div>
     </div>
   `).join("");
+
+  contenedor.innerHTML = destacadosHTML;
 }
 
 // =========================
@@ -220,11 +231,25 @@ function loginUsuario() {
 // Inicialización
 // =========================
 document.addEventListener("DOMContentLoaded", () => {
-  mostrarProductos();
-  mostrarDetalleProducto();
-  mostrarCarrito();
-  mostrarDestacados();
-  registrarUsuario();
-  loginUsuario();
+  if (document.getElementById("lista-productos")) {
+    mostrarProductos();
+  }
+  if (document.getElementById("detalleProducto")) {
+    mostrarDetalleProducto();
+  }
+  if (document.getElementById("productosDestacados")) {
+    mostrarDestacados();
+  }
+  if (document.getElementById("formRegistro")) {
+    registrarUsuario();
+  }
+  if (document.getElementById("formLogin")) {
+    loginUsuario();
+  }
+
+  // Las funciones del carrito se ejecutan en todas las páginas que lo necesiten
   actualizarContadorCarrito();
+  if (document.getElementById("carrito-items")) {
+    mostrarCarrito();
+  }
 });
